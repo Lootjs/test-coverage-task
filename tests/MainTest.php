@@ -17,9 +17,8 @@ final class MainTest extends TestCase
      */
     public function testMainTest()
     {
-        $amount = 1000;
         $app = new Main(1_000);
 
-        $this->assertEquals($amount, $app->payment->getAmount());
+        $this->assertInstanceOf(MainTest::class, $app);
     }
 }
