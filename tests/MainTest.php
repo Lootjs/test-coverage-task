@@ -17,8 +17,9 @@ final class MainTest extends TestCase
      */
     public function testMainTest()
     {
-        $app = new Main(3000);
+        $amount = 1000;
+        $app = new Main(1_000);
 
-        $this->assertEquals('', $app->displayCheck());
+        $this->assertEquals($amount, $app->payment->getAmount());
     }
 }
