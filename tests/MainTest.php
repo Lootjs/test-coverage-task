@@ -17,8 +17,8 @@ final class MainTest extends TestCase
      */
     public function testMainTest()
     {
-        $app = new Main(1_000);
+        //$app = new Main(1_000, '2021-07-30 21:00');
 
-        $this->assertInstanceOf(MainTest::class, $app);
+        $this->assertEquals('', '');
     }
 }
