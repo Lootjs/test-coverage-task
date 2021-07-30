@@ -1,24 +1,28 @@
 <?php
 
-namespace Tests\Unit;
-
-include 'vendor/autoload.php';
+namespace Rahmet\TestCoverageTask;
 
 use PHPUnit\Framework\TestCase;
 
-use Rahmet\TestCoverageTask\Main;
-
-final class MainTest extends TestCase
+class MainTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testMainTest()
-    {
-        //$app = new Main(1_000, '2021-07-30 21:00');
 
-        $this->assertEquals('', '');
+    public function testSendCheck()
+    {
+        $app = new Main(1_000, '2021-07-30 10:00:00');
+
+        $this->assertEquals(null, $app->sendCheck());
+    }
+
+    public function testDisplayCheck()
+    {
+        $app = new Main(1_000, '2021-07-30 10:00:00');
+        $res = <<<HEREDOC
+        Вы выполнили платеж на сумму: 1000
+        Возможная сумма возврата: 100
+        Платежная система вашей операции: Rahmet\TestCoverageTask\WalletPaymentProvider
+HEREDOC;
+
+        $this->assertEquals($res, $app->displayCheck());
     }
 }
